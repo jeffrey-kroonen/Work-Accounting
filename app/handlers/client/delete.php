@@ -2,6 +2,8 @@
 
   require_once dirname(__DIR__, 3)."/config/initialize.php";
 
+  if (!Guard::authenticated()) die("No access permitted");
+
   $id = (int)$_POST["id"] ?? null;
 
   if (!is_null($id)) {

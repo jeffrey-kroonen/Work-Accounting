@@ -5,7 +5,8 @@
     "pagetitle" => "Klanten",
     "navactive" => "clients",
     "javascript" => [
-      "client"
+      "client",
+      "timeregistration"
     ]
   ];
 
@@ -14,8 +15,13 @@
   require_once dirname(__DIR__)."/layouts/navbar.php";
 
   if (!Guard::authenticated()) header("Location:/authentication");
+  
+  $id = (isset($_GET["id"]) && !empty($_GET["id"])) ? (int) $_GET["id"] : null;
+  if (is_null($id)) die("No valid parameter value.");
 
-  $clients = Client::all();
+  $client = Client::find($id);
+
+  $registrations = TimeRegistration::where(["client_id" => $id]);
 
 ?>
 
@@ -28,28 +34,24 @@
         <div class="card shadow border-none">
           <div class="card-body">
             <div class="h3 text-secondary">
-              Klanten
+              <?= $client->name ?>
             </div>
             <div class="card-content">
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th class="text-secondary">NAAM</th>
-                    <th></th>
+                    <th class="text-secondary">TITEL</th>
+                    <th class="text-secondary">BESCHRIJVING</th>
                   </tr> 
                 </thead>
                 <tbody>
                   <?php
-                    if (!empty($clients)) {
-                      foreach ($clients as $client) {
+                    if (!empty($registrations)) {
+                      foreach ($registrations as $registration) {
                   ?>
                   <tr class="text-muted">
-                    <td><?= $client->name; ?></td>
-                    <td class="text-right">
-                      <a href="/clients/timeregistration.php?id=<?= $client->id; ?>" class="text-muted"><i class="far fa-clock mr-2"></i></a>
-                      <a href="/clients/client.php?id=<?= $client->id; ?>" class="text-muted"><i class="far fa-edit mr-2"></i></a>
-                      <i class="fas fa-trash delete-client" data-id="<?= $client->id; ?>"></i>
-                    </td>
+                    <td><?= $registration->title; ?></td>
+                    <td title="<?= $registration->description; ?>"><?= (strlen($registration->description) > 39) ? substr($registration->description, 0, 39)."..." : substr($registration->description, 0, 39); ?></td>
                   </tr>
                   <?php
                       }
@@ -57,8 +59,8 @@
                   ?>
                 </tbody>
               </table>
-              <button type="button" class="btn btn-light" id="add-client-button"><i class="fas fa-plus-circle text-secondary"></i> Nieuw</button>
-              <div id="add-client-modal-append"></div>
+              <button type="button" class="btn btn-light" id="add-timeregistration-button"><i class="fas fa-plus-circle text-secondary"></i> Nieuw</button>
+              <div id="add-timeregistration-modal-append"></div>
             </div>
           </div>
         </div>

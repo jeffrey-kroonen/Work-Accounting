@@ -9,4 +9,4 @@
   session_start();
 
   define("VERSION", "0.0.0");
-  define("APPNAME", "Work Accounting");
+  define("APPNAME", "Work Registration");

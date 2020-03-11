@@ -2,7 +2,9 @@
 
   require_once dirname(__DIR__, 3)."/config/initialize.php";
 
-  $id = (int)$_POST["id"] ?? null;
+  if (!Guard::authenticated()) die("No access permitted");
+
+  $id = isset($_POST["id"]) ? (int)$_POST["id"] : null;
   $name = $_POST["name"] ?? null;
   $email = $_POST["email"] ?? null;
   $phonenumber = $_POST["phonenumber"] ?? null;
@@ -25,12 +27,12 @@
       
       if ($client) {
         
-        $client->name = $name;
-        $client->email = $email;
+        $client->name = ucwords(strtolower($name));
+        $client->email = strtolower($email);
         $client->phonenumber = str_replace(" ", "", $phonenumber);
-        $client->address = $address;
-        $client->city = $city;
-        $client->zipcode = $zipcode;
+        $client->address = ucwords(strtolower($address));
+        $client->city = ucwords(strtolower($city));
+        $client->zipcode = strtoupper($zipcode);
         $client->save();
         echo "success";
         

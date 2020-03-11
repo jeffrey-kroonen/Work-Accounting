@@ -1,8 +1,8 @@
 <?php
 
-  class Accounting extends Model {
+  class TimeRegistration extends Model {
     
-    protected static $table = "accounting";
+    protected static $table = "time_registrations";
     public $id;
     public $user_id;
     public $client_id;
@@ -11,6 +11,11 @@
     public $description;
     public $start_datetime;
     public $end_datetime;
+    
+    public const TYPES = [
+      "Development",
+      "Marketing"
+    ];
     
     public function __construct($init = null)
     {

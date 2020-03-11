@@ -13,7 +13,12 @@
   require_once dirname(__DIR__)."/layouts/header.php";
   require_once dirname(__DIR__)."/layouts/navbar.php";
 
-  $client = Client::find((int)$_GET["id"]);
+  if (!Guard::authenticated()) header("Location:/authentication");
+
+  $id = (isset($_GET["id"]) && !empty($_GET["id"])) ? (int) $_GET["id"] : null;
+  if (is_null($id)) die("No valid parameter value.");
+
+  $client = Client::find($id);
 
 ?>
 
@@ -26,7 +31,7 @@
         <div class="card shadow border-none">
           <div class="card-body">
             <div class="h3 text-secondary">
-              <?= ucwords(strtolower($client->name)); ?>
+              <?= $client->name; ?>
             </div>
             <div class="card-content">
               

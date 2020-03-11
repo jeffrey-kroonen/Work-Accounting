@@ -28,7 +28,7 @@
 | created_at | DATETIME, CURRENT_TIMESTAMP |
 | updated_at | TIMESTAMP, CURRENT_TIMESTAMP, ON UPDATE CURRENT_TIMESTAMP |
 
-### accounting
+### time_registrations
 | column | type | options |
 |--------|----|-----------|
 | id | INT(11) AI, PK |

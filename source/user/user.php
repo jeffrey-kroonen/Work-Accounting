@@ -7,7 +7,7 @@
     public $name;
     public $email;
     public $phonenumber;
-    private $password;
+    protected $password;
     public $remembter_token;
     public $status;
     public $role;

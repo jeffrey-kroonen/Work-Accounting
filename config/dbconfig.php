@@ -2,7 +2,7 @@
 
   $localdb = [
     "host" => "localhost",
-    "database" => "",
-    "username" => "",
+    "database" => "work_registration",
+    "username" => "root",
     "password" => ""
   ];

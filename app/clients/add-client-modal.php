@@ -1,3 +1,11 @@
+<?php
+
+  require_once dirname(__DIR__, 2)."/config/initialize.php";  
+
+  if (!Guard::authenticated()) header("Location:/authentication");
+
+?>
+
 <!-- Modal -->
 <div class="modal fade" id="add-client-modal-box" tabindex="-1" role="dialog" aria-labelledby="title" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">

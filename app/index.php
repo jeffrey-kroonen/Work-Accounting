@@ -10,6 +10,8 @@
   require_once dirname(__FILE__)."/layouts/header.php";
   require_once dirname(__FILE__)."/layouts/navbar.php";
 
+  if (!Guard::authenticated()) header("Location:/authentication");
+
 ?>
 
   <div class="container mt-5 mb-5">
