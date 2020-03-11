@@ -1,0 +1,10 @@
+/** 
+ *FONT AWESOME: customize 
+ */
+
+i.far.fa-clock:hover, 
+i.far.fa-edit:hover, 
+i.fas.fa-trash:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

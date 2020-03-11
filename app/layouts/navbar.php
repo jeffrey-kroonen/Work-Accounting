@@ -23,9 +23,14 @@
         <a class="nav-link" href="/timeregistrations">Tijd registratie <span class="sr-only">(current)</span></a>
       </li>
     </ul>
-    <div class="user-icon">
+
+    <div class="dropdown">
+      <a class="dropdown-toggle text-secondary" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-user-circle fa-lg text-secondary"></i>
-      <a href="/handlers/authentication/logout.php">Logout</a>
+      </a>
+
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+        <a href="/handlers/authentication/logout.php" class="dropdown-item">Logout</a>
     </div>
   </div>
   <?php
