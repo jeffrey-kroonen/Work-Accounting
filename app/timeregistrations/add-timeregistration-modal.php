@@ -75,11 +75,21 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="start_datetime">Van</label>
-              <input type="text" name="start_datetime" id="start_datetime" class="form-control-plaintext border-bottom datetimepicker" readonly required>
+              <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+              <input type="text" class="form-control datetimepicker-input"  name="start_datetime" id="start_datetime" data-target="#datetimepicker2" required>
+                <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="end_datetime">Tot</label>
-              <input type="text" name="end_datetime" id="end_datetime" class="form-control-plaintext border-bottom datetimepicker" readonly required>
+              <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+              <input type="text" class="form-control datetimepicker-input"  name="end_datetime" id="end_datetime" data-target="#datetimepicker1" required>
+                <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -105,9 +115,11 @@
 
 ?>
 
-<script>
-  $(".datetimepicker").datetimepicker({
-    format:"d/m/Y H:i",
-    lang: "nl"
+<script type="text/javascript">
+  $(function () {
+      $('#datetimepicker1, #datetimepicker2').datetimepicker({
+        format: "DD/MM/YYYY HH:mm",
+        locale: "nl"
+      });
   });
 </script>
