@@ -1,0 +1,18 @@
+<?php
+
+    require_once dirname(__DIR__, 3) . "/config/initialize.php";
+
+    $id = isset($_POST["id"]) && !empty($_POST["id"]) ? $_POST["id"] : null;
+
+    if (is_null($id)) die("empty");
+
+    $timeRegistration = TimeRegistration::find($id);
+
+    if (!isset($timeRegistration)) die("not found");
+
+    try {
+        $timeRegistration->delete();
+        echo "success";
+    } catch (Exception $e) {
+        echo "ErrorMessage: " .$e->getMessage();
+    }

@@ -28,12 +28,54 @@ $(document).ready(function() {
     e.preventDefault();
 
     $.post("/handlers/timeregistration/create.php", $(this).serialize(), function(res) {
-      console.log(res);
-      /** handler is done, next step is write reponse to the fornt-end */
+      var msg;
+
+      if (res.indexOf("not found") !== -1) {
+        msg = "De tijd registratie bestaat niet.";
+      } else if (res == "empty") {
+        msg = "Niet alle velden zijn ingevuld.";
+      } else if (res == "success") {
+        window.location.reload();
+      } else {
+        msg = "Er is iets misgegaan.";
+      }
+
+      if (msg.length > 0) {
+        $(".msg").hide();
+        $(".msg").addClass("alert alert-danger");
+        $(".msg").slideDown();
+        $(".msg").html(msg);
+      }
     });
 
   });
     
+  /** delete timeregistration */
+  $(document).on("click", ".delete-timeregistration", function(e) {
+    let id = $(this).data("id");
+
+    $.post("/handlers/timeregistration/delete.php", {id}, function(res) {
+      var msg;
+
+      if (res.indexOf("not found") !== -1) {
+        msg = "De tijd registratie bestaat niet.";
+      } else if (res == "empty") {
+        msg = "Niet alle verplichte velden zijn verstuurd.";
+      } else if (res == "success") {
+        window.location.reload();
+      } else {
+        msg = "Er is iets misgegaan.";
+      }
+
+      if (msg.length > 0) {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".msg").hide();
+        $(".msg").addClass("alert alert-danger");
+        $(".msg").slideDown();
+        $(".msg").html(msg);
+      }
+    });
+  })
   
   
 });

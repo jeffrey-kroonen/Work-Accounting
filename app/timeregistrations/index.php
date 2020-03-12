@@ -21,6 +21,9 @@
   <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
       <div class="col-md-8">
+
+        <div class="msg mb-2" style="display: none;"></div>
+
         <div class="card shadow border-none">
           <div class="card-body">
             <div class="h3 text-secondary">
@@ -44,7 +47,7 @@
                     <td><?= ucwords(strtolower(Client::find($registration->client_id)->name)); ?></td>
                     <td><?= $registration->title; ?></td>
                     <td class="text-right">
-                      <i class="fas fa-trash delete-client" data-id="<?= $registration->id; ?>"></i>
+                      <i class="fas fa-trash delete-timeregistration" data-id="<?= $registration->id; ?>"></i>
                     </td>
                   </tr>
                   <?php

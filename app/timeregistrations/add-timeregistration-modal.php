@@ -21,6 +21,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+
+      <div class="msg m-2" style="display: none;"></div>
+
       <form id="add-timeregistration-form">
         
         <div class="modal-body">

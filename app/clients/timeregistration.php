@@ -42,6 +42,7 @@
                   <tr>
                     <th class="text-secondary">TITEL</th>
                     <th class="text-secondary">BESCHRIJVING</th>
+                    <th></th>
                   </tr> 
                 </thead>
                 <tbody>
@@ -52,6 +53,7 @@
                   <tr class="text-muted">
                     <td><?= $registration->title; ?></td>
                     <td title="<?= $registration->description; ?>"><?= (strlen($registration->description) > 39) ? substr($registration->description, 0, 39)."..." : substr($registration->description, 0, 39); ?></td>
+                    <td class="text-right"><i class="fas fa-trash delete-timeregistration" data-id="<?= $registration->id; ?>"></i></td>
                   </tr>
                   <?php
                       }

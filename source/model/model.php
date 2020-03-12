@@ -9,12 +9,12 @@
     
     public static function find($mixed)
     {
-      if (is_int($mixed)) {
-        $query = "SELECT * FROM `".static::$table."` WHERE `".static::$table."`.`id` = ?";
-        $params = [$mixed];
-      } else if (is_array($mixed)) {
+      if (is_array($mixed)) {
         $query = "SELECT * FROM `".static::$table."` WHERE `".implode("` = ? AND `", array_keys($mixed))."` = ?";
         $params = array_values($mixed);
+      } else {
+        $query = "SELECT * FROM `".static::$table."` WHERE `".static::$table."`.`id` = ?";
+        $params = [$mixed];
       }
       
       $object = Database::find($query, $params);
