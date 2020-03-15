@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### TODO
--   When deleting time registrations, an administrator need to approve the deletion or undo the deletion.
+-   Implement functionality for users to edit their time registrations.
 
 ## [0.0.2] - 2020-03-15
 ### Added
