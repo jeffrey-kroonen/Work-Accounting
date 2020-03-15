@@ -19,7 +19,7 @@
     public static function role(string $preferredRole) : bool
     {
       if (static::authenticated()) {
-        if (in_array($preferredRole, ROLES)) {
+        if (in_array($preferredRole, self::ROLES)) {
           if ($preferredRole == $_SESSION["role"]) {
             return true;
           } else {

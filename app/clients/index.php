@@ -48,7 +48,13 @@
                     <td class="text-right">
                       <a href="/clients/timeregistration.php?id=<?= $client->id; ?>" class="text-muted"><i class="far fa-clock mr-2"></i></a>
                       <a href="/clients/client.php?id=<?= $client->id; ?>" class="text-muted"><i class="far fa-edit mr-2"></i></a>
+                      <?php
+                        if (Guard::role("administrator")) {
+                      ?>
                       <i class="fas fa-trash delete-client" data-id="<?= $client->id; ?>"></i>
+                      <?php
+                        }
+                      ?>
                     </td>
                   </tr>
                   <?php

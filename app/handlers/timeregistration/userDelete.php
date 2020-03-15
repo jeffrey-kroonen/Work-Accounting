@@ -13,7 +13,7 @@
     if (!isset($timeRegistration)) die("not found");
 
     try {
-        $timeRegistration->delete();
+        $timeRegistration->isDeleted();
         echo "success";
     } catch (Exception $e) {
         echo "ErrorMessage: " .$e->getMessage();

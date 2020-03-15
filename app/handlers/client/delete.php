@@ -2,7 +2,7 @@
 
   require_once dirname(__DIR__, 3)."/config/initialize.php";
 
-  if (!Guard::authenticated()) die("No access permitted");
+  if (!Guard::role("administrator")) die("No access permitted");
 
   $id = (int)$_POST["id"] ?? null;
 

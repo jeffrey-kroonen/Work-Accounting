@@ -10,6 +10,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 -   When deleting time registrations, an administrator need to approve the deletion or undo the deletion.
 
 ## [0.0.2] - 2020-03-15
+### Added
+-   Added time registration panel for administrator. The deleted time registrations are marked red.
+-   Added functionality to edit and update a time registration for administrators.
+-   Added possibility to delete time registrationts for administrators.
+
 ### Changed
 -   When a user deletes a time registration it won't be visible for users anymore.
 
@@ -35,3 +40,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [Unreleased]: https://github.com/jeffrey-kroonen/work-accounting
 [0.0.1]: https://github.com/jeffrey-kroonen/work-accounting
+[0.0.2]: https://github.com/jeffrey-kroonen/work-accounting
