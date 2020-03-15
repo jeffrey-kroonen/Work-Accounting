@@ -6,11 +6,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### TODO
+-   When deleting time registrations, an administrator need to approve the deletion or undo the deletion.
+
+## [0.0.2] - 2020-03-15
+### Changed
+-   When a user deletes a time registration it won't be visible for users anymore.
+
 ## [0.0.2] - 2020-03-12
 ### Added
 -   Added error notifications when something went wrong on adding a time registration.
 -   Added functionality to delete time registrations.
-
 
 ## [0.0.1] - 2020-03-11
 ### Added

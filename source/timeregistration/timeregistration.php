@@ -25,5 +25,12 @@
         }
       }
     }
+
+    public function isDeleted() : void
+    {
+      if (isset($this->id)) {
+        Database::update(static::$table, ["is_deleted" => 1], "WHERE `id` = ?", [$this->id]);
+      }
+    }
     
   }

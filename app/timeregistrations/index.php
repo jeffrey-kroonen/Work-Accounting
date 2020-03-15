@@ -42,6 +42,7 @@
                   <?php
                     if (!empty($registrations)) {
                       foreach ($registrations as $registration) {
+                        if ($registration->is_deleted == 0) {
                   ?>
                   <tr class="text-muted">
                     <td><?= ucwords(strtolower(Client::find($registration->client_id)->name)); ?></td>
@@ -51,6 +52,7 @@
                     </td>
                   </tr>
                   <?php
+                        }
                       }
                     }
                   ?>
