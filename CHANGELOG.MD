@@ -6,9 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## TODO
+-   Add undo functionality to deleted time registration for administrators.
+
 ## [0.1.0] - 2020-03-24
 ### Added
 -   Added functionality for users to edit their time registrations.
+
+### Changed
+-   Improved the view of deleted time registrations to administrators.
 
 ## [0.0.2] - 2020-03-15
 ### Added
