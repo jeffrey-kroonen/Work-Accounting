@@ -53,7 +53,10 @@
                   <tr class="text-muted">
                     <td><?= $registration->title; ?></td>
                     <td title="<?= $registration->description; ?>"><?= (strlen($registration->description) > 39) ? substr($registration->description, 0, 39)."..." : substr($registration->description, 0, 39); ?></td>
-                    <td class="text-right"><i class="fas fa-trash <?= Guard::role("user") ? "user-" : ""; ?>delete-timeregistration" data-id="<?= $registration->id; ?>"></i></td>
+                    <td class="text-right">
+                      <i class="far fa-edit mr-2 edit-timeregistration-button" data-id="<?= $registration->id; ?>"></i>
+                      <i class="fas fa-trash <?= Guard::role("user") ? "user-" : ""; ?>delete-timeregistration" data-id="<?= $registration->id; ?>"></i>
+                    </td>
                   </tr>
                   <?php
                       }
@@ -62,7 +65,10 @@
                 </tbody>
               </table>
               <button type="button" class="btn btn-light" id="add-timeregistration-button"><i class="fas fa-plus-circle text-secondary"></i> Nieuw</button>
+              
               <div id="add-timeregistration-modal-append"></div>
+
+              <div id="edit-timeregistration-modal-append"></div>
             </div>
           </div>
         </div>

@@ -54,6 +54,7 @@
                     <td><?= ucwords(strtolower(Client::find($registration->client_id)->name)); ?></td>
                     <td><?= $registration->title; ?></td>
                     <td class="text-right">
+                    <i class="far fa-edit mr-2 edit-timeregistration-button" data-id="<?= $registration->id; ?>"></i>
                       <i class="fas fa-trash user-delete-timeregistration" data-id="<?= $registration->id; ?>"></i>
                     </td>
                   </tr>
@@ -134,9 +135,6 @@
                   </tbody>
                 </table>
               </div>
-
-              <div id="edit-timeregistration-modal-append"></div>
-
             </div>
           </div>
         </div>
@@ -148,6 +146,11 @@
 <?php
 
   }
+?>
+
+  <div id="edit-timeregistration-modal-append"></div>
+
+<?php
 
   require_once dirname(__DIR__)."/layouts/footer.php";
 
