@@ -146,6 +146,35 @@ $(document).ready(function() {
       });
     }
   });
+
+  /** Undo deleted time registration for administrators */
+  $(document).on("click", ".undo-timeregistration-deletion", function(e) {
+    let id = $(this).data("id");
+
+    if (confirm("Weet u zeker dat de verwijdering van deze tijd registratie ongedaan wilt maken?")) {
+      $.post("/handlers/timeregistration/undoDeletion.php", {id}, function(res) {
+        var msg;
+        console.log(res);
+        if (res.indexOf("not found") !== -1) {
+          msg = "De tijd registratie bestaat niet.";
+        } else if (res == "empty") {
+          msg = "Niet alle verplichte velden zijn verstuurd.";
+        } else if (res == "success") {
+          window.location.reload();
+        } else {
+          msg = "Er is iets misgegaan.";
+        }
+  
+        if (msg.length > 0) {
+          $("html, body").animate({ scrollTop: 0 }, "slow");
+          $(".msg").hide();
+          $(".msg").addClass("alert alert-danger");
+          $(".msg").slideDown();
+          $(".msg").html(msg);
+        }
+      });
+    }
+  });
   
   
 });

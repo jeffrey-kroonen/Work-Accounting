@@ -124,8 +124,16 @@
                       <td><?= Client::find($registration->client_id)->name ?></td>
                       <td><?= $registration->title; ?></td>
                       <td><?= date("d-m-Y", strtotime($registration->created_at)); ?></td>
-                      <td class="text-right text-muted">
-                        <i class="far fa-edit mr-2 edit-timeregistration-button" data-id="<?= $registration->id; ?>"></i>
+                      <td class="d-flex justify-content-between">
+                      <?php
+                        if ($registration->is_deleted == 1) {
+                      ?>
+                        <i class="fas fa-undo undo-timeregistration-deletion" data-id="<?= $registration->id; ?>" 
+                           title="Verwijdering van tijd registratie ongedaan maken."></i>
+                      <?php
+                        }
+                      ?>
+                        <i class="far fa-edit edit-timeregistration-button" data-id="<?= $registration->id; ?>"></i>
                         <i class="fas fa-trash delete-timeregistration" data-id="<?= $registration->id; ?>"></i>
                       </td>
                     </tr>

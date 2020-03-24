@@ -32,5 +32,12 @@
         Database::update(static::$table, ["is_deleted" => 1], "WHERE `id` = ?", [$this->id]);
       }
     }
+
+    public function undoDeletion() : void
+    {
+      if (isset($this->id)) {
+        Database::update(static::$table, ["is_deleted" => 0], "WHERE `id` = ?", [$this->id]);
+      }
+    }
     
   }

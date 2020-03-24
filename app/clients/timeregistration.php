@@ -106,6 +106,7 @@
               <?= $client->name ?>
             </div>
             <div class="card-content">
+              <div class="table-responsive">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -124,7 +125,15 @@
                   <td><?= User::find($registration->user_id)->name; ?></td>
                     <td><?= $registration->title; ?></td>
                     <td title="<?= $registration->description; ?>"><?= (strlen($registration->description) > 39) ? substr($registration->description, 0, 39)."..." : substr($registration->description, 0, 39); ?></td>
-                    <td class="text-right">
+                    <td class="d-flex justify-content-between">
+                    <?php
+                        if ($registration->is_deleted == 1) {
+                      ?>
+                        <i class="fas fa-undo mr-2 undo-timeregistration-deletion" data-id="<?= $registration->id; ?>" 
+                           title="Verwijdering van tijd registratie ongedaan maken."></i>
+                      <?php
+                        }
+                      ?>
                       <i class="far fa-edit mr-2 edit-timeregistration-button" data-id="<?= $registration->id; ?>"></i>
                       <i class="fas fa-trash <?= Guard::role("user") ? "user-" : ""; ?>delete-timeregistration" data-id="<?= $registration->id; ?>"></i>
                     </td>
@@ -135,6 +144,7 @@
                   ?>
                 </tbody>
               </table>
+              </div>
               <button type="button" class="btn btn-light" id="add-timeregistration-button"><i class="fas fa-plus-circle text-secondary"></i> Nieuw</button>
             </div>
           </div>
