@@ -9,3 +9,13 @@ i.fas.fa-undo:hover {
     cursor: pointer;
     opacity: 0.8;
 }
+
+/**
+ *  Custom css
+ */
+
+.counter {
+    font-size: 1.6em;
+    color: #444;
+    font-weight: 600;
+}

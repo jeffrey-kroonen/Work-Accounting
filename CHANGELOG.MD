@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 -   Improved the view of deleted time registrations to administrators.
+-   Improved dashboard view.
 
 ## [0.0.2] - 2020-03-15
 ### Added

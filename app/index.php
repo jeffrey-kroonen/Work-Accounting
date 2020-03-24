@@ -22,16 +22,44 @@
             <div class="h3 text-secondary">
               Dashboard
             </div>
+
             <div class="card-content">
               <div class="row">
+
                 <div class="col-md-4">
-                  <div class="card">
-                    <div class="card-body">
-                      ..
+                  <div class="d-flex align-items-center border-right">
+                    <div class="d-block mr-2">
+                      <i class="fas fa-users fa-2x pr-2 text-muted"></i>
+                    </div>
+                    <div class="d-block">
+                      <div class="text-muted">
+                        Klanten
+                      </div>
+                      <div class="counter">
+                        <?= count(Client::all()) ?>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                <div class="col-md-4">
+                  <div class="d-flex align-items-center border-right">
+                    <div class="d-block mr-2">
+                    <i class="fas fa-clock fa-2x pr-2 text-muted"></i>
+                    </div>
+                    <div class="d-block">
+                      <div class="text-muted">
+                        Tijd registraties
+                      </div>
+                      <div class="counter">
+                        <?= count(TimeRegistration::all()) ?>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
+
             </div>
           </div>
         </div>
