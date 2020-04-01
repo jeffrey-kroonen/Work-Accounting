@@ -37,7 +37,7 @@
 | type | VARCHAR(255) NOT NULL | 'development' \| 'marketing' |
 | title | VARCHAR(255) NOT NULL |
 | description | VARCHAR(255) NOT NULL |
-| is_deleted | INT(1) DEFAULT 1 | '1' \| '0' |
+| is_deleted | INT(1) DEFAULT 0 | '1' \| '0' |
 | start_datetime | DATETIME NOT NULL |
 | end_datetime | DATETIME NOT NULL |
 | created_at | DATETIME, CURRENT_TIMESTAMP |
