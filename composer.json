@@ -1,9 +1,19 @@
 {
+    "name": "jeffrey-kroonen/work-accounting",
+    "description": "A software tool to enhance and automate work accounting for employees",
+    "type": "project",
     "require": {
-        "guzzlehttp/guzzle": "~6.0",
-        "guzzlehttp/psr7": "~1.6"
+        "guzzlehttp/guzzle": "^7.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "~7.0"
-    }
+        "phpunit/phpunit": "^5.2"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeffrey",
+            "email": "jeffreykroonen@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
 }
